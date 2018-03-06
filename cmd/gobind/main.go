@@ -20,8 +20,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"golang.org/x/mobile/internal/importers"
-	"golang.org/x/mobile/internal/importers/java"
+	"github.com/Connoropolous/mobile/internal/importers"
+	"github.com/Connoropolous/mobile/internal/importers/java"
 )
 
 var (

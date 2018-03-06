@@ -19,9 +19,9 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"golang.org/x/mobile/bind"
-	"golang.org/x/mobile/internal/importers"
-	"golang.org/x/mobile/internal/importers/java"
+	"github.com/Connoropolous/mobile/bind"
+	"github.com/Connoropolous/mobile/internal/importers"
+	"github.com/Connoropolous/mobile/internal/importers/java"
 )
 
 func genPkg(p *types.Package, allPkg []*types.Package, classes []*java.Class) {
@@ -77,12 +77,12 @@ func genPkg(p *types.Package, allPkg []*types.Package, classes []*java.Class) {
 		closer()
 		// Generate support files along with the universe package
 		if p == nil {
-			p, err := build.Default.Import("golang.org/x/mobile/bind", ".", build.ImportComment)
+			p, err := build.Default.Import("github.com/Connoropolous/mobile/bind", ".", build.ImportComment)
 			if err != nil {
-				errorf(`"golang.org/x/mobile/bind" is not found; run go get golang.org/x/mobile/bind: %v`, err)
+				errorf(`"github.com/Connoropolous/mobile/bind" is not found; run go get github.com/Connoropolous/mobile/bind: %v`, err)
 				return
 			}
-			repo := filepath.Clean(filepath.Join(p.Dir, "..")) // golang.org/x/mobile directory.
+			repo := filepath.Clean(filepath.Join(p.Dir, "..")) // github.com/Connoropolous/mobile directory.
 			for _, javaFile := range []string{"Seq.java", "LoadJNI.java"} {
 				src := filepath.Join(repo, "bind/java/"+javaFile)
 				in, err := os.Open(src)
@@ -99,7 +99,7 @@ func genPkg(p *types.Package, allPkg []*types.Package, classes []*java.Class) {
 			}
 		}
 		// Copy support files
-		javaPkg, err := build.Default.Import("golang.org/x/mobile/bind/java", "", build.FindOnly)
+		javaPkg, err := build.Default.Import("github.com/Connoropolous/mobile/bind/java", "", build.FindOnly)
 		if err != nil {
 			errorf("unable to import bind/java: %v", err)
 			return
@@ -112,7 +112,7 @@ func genPkg(p *types.Package, allPkg []*types.Package, classes []*java.Class) {
 		conf.Writer = w
 		processErr(bind.GenGo(conf))
 		closer()
-		bindPkg, err := build.Default.Import("golang.org/x/mobile/bind", "", build.FindOnly)
+		bindPkg, err := build.Default.Import("github.com/Connoropolous/mobile/bind", "", build.FindOnly)
 		if err != nil {
 			errorf("unable to import bind: %v", err)
 			return
@@ -152,7 +152,7 @@ func genPkg(p *types.Package, allPkg []*types.Package, classes []*java.Class) {
 		io.Copy(w, &buf)
 		closer()
 		// Copy support files
-		objcPkg, err := build.Default.Import("golang.org/x/mobile/bind/objc", "", build.FindOnly)
+		objcPkg, err := build.Default.Import("github.com/Connoropolous/mobile/bind/objc", "", build.FindOnly)
 		if err != nil {
 			errorf("unable to import bind/objc: %v", err)
 			return

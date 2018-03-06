@@ -57,14 +57,14 @@ import (
 	"time"
 	"unsafe"
 
-	"golang.org/x/mobile/app/internal/callfn"
-	"golang.org/x/mobile/event/key"
-	"golang.org/x/mobile/event/lifecycle"
-	"golang.org/x/mobile/event/paint"
-	"golang.org/x/mobile/event/size"
-	"golang.org/x/mobile/event/touch"
-	"golang.org/x/mobile/geom"
-	"golang.org/x/mobile/internal/mobileinit"
+	"github.com/Connoropolous/mobile/app/internal/callfn"
+	"github.com/Connoropolous/mobile/event/key"
+	"github.com/Connoropolous/mobile/event/lifecycle"
+	"github.com/Connoropolous/mobile/event/paint"
+	"github.com/Connoropolous/mobile/event/size"
+	"github.com/Connoropolous/mobile/event/touch"
+	"github.com/Connoropolous/mobile/geom"
+	"github.com/Connoropolous/mobile/internal/mobileinit"
 )
 
 //export setCurrentContext

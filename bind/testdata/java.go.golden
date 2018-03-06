@@ -232,7 +232,7 @@ import "C"
 
 import (
 	"Java"
-	_seq "golang.org/x/mobile/bind/seq"
+	_seq "github.com/Connoropolous/mobile/bind/seq"
 )
 
 import "Java/java/lang/Float"
@@ -511,7 +511,7 @@ package gomobile_bind
 import "C"
 
 import (
-	_seq "golang.org/x/mobile/bind/seq"
+	_seq "github.com/Connoropolous/mobile/bind/seq"
 	"java"
 )
 

@@ -39,9 +39,9 @@ var destination = flag.String("device", "platform=iOS Simulator,name=iPhone 6s P
 // This requires the xcode command lines tools.
 func TestObjcSeqTest(t *testing.T) {
 	runTest(t, []string{
-		"golang.org/x/mobile/bind/testpkg",
-		"golang.org/x/mobile/bind/testpkg/secondpkg",
-		"golang.org/x/mobile/bind/testpkg/simplepkg",
+		"github.com/Connoropolous/mobile/bind/testpkg",
+		"github.com/Connoropolous/mobile/bind/testpkg/secondpkg",
+		"github.com/Connoropolous/mobile/bind/testpkg/simplepkg",
 	}, "xcodetest", "SeqTest.m", false)
 }
 
@@ -51,13 +51,13 @@ func TestObjcSeqBench(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping benchmark in short mode.")
 	}
-	runTest(t, []string{"golang.org/x/mobile/bind/benchmark"}, "xcodebench", "SeqBench.m", true)
+	runTest(t, []string{"github.com/Connoropolous/mobile/bind/benchmark"}, "xcodebench", "SeqBench.m", true)
 }
 
 // TestObjcSeqWrappers runs ObjC test SeqWrappers.m.
 // This requires the xcode command lines tools.
 func TestObjcSeqWrappers(t *testing.T) {
-	runTest(t, []string{"golang.org/x/mobile/bind/testpkg/objcpkg"}, "xcodewrappers", "SeqWrappers.m", false)
+	runTest(t, []string{"github.com/Connoropolous/mobile/bind/testpkg/objcpkg"}, "xcodewrappers", "SeqWrappers.m", false)
 }
 
 func runTest(t *testing.T, pkgNames []string, project, testfile string, dumpOutput bool) {
@@ -66,7 +66,7 @@ func runTest(t *testing.T, pkgNames []string, project, testfile string, dumpOutp
 	}
 	if _, err := run("which gomobile"); err != nil {
 		t.Log("go install gomobile")
-		if _, err := run("go install golang.org/x/mobile/cmd/gomobile"); err != nil {
+		if _, err := run("go install github.com/Connoropolous/mobile/cmd/gomobile"); err != nil {
 			t.Fatalf("gomobile install failed: %v", err)
 		}
 		t.Log("gomobile init")

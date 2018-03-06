@@ -17,15 +17,15 @@ var tests = []struct {
 	pkg  string
 	goos string
 }{
-	{"ObjC-Testpkg", "objc", "golang.org/x/mobile/bind/testpkg", ""},
-	{"Java-Testpkg", "java", "golang.org/x/mobile/bind/testpkg", ""},
-	{"Go-Testpkg", "go", "golang.org/x/mobile/bind/testpkg", ""},
-	{"Java-Javapkg", "java", "golang.org/x/mobile/bind/testpkg/javapkg", "android"},
-	{"Go-Javapkg", "go", "golang.org/x/mobile/bind/testpkg/javapkg", "android"},
+	{"ObjC-Testpkg", "objc", "github.com/Connoropolous/mobile/bind/testpkg", ""},
+	{"Java-Testpkg", "java", "github.com/Connoropolous/mobile/bind/testpkg", ""},
+	{"Go-Testpkg", "go", "github.com/Connoropolous/mobile/bind/testpkg", ""},
+	{"Java-Javapkg", "java", "github.com/Connoropolous/mobile/bind/testpkg/javapkg", "android"},
+	{"Go-Javapkg", "go", "github.com/Connoropolous/mobile/bind/testpkg/javapkg", "android"},
 }
 
 func installGobind() error {
-	if out, err := exec.Command("go", "install", "golang.org/x/mobile/cmd/gobind").CombinedOutput(); err != nil {
+	if out, err := exec.Command("go", "install", "github.com/Connoropolous/mobile/cmd/gobind").CombinedOutput(); err != nil {
 		return fmt.Errorf("gobind install failed: %v: %s", err, out)
 	}
 	return nil

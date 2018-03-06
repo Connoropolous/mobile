@@ -25,7 +25,7 @@ import org.golang.mobile.AARPublishArtifact
 /*
  * GobindPlugin configures the default project that builds .AAR file
  * from a go package, using gomobile bind command.
- * For gomobile bind command, see https://golang.org/x/mobile/cmd/gomobile
+ * For gomobile bind command, see https://github.com/Connoropolous/mobile/cmd/gomobile
  *
  * If the project has the android or android library plugin loaded, GobindPlugin
  * hooks into the android build lifecycle in two steps. First, the Java classes are

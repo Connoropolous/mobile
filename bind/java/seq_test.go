@@ -15,7 +15,7 @@ import (
 	"testing"
 	"time"
 
-	"golang.org/x/mobile/internal/importers/java"
+	"github.com/Connoropolous/mobile/internal/importers/java"
 )
 
 func TestClasses(t *testing.T) {
@@ -23,21 +23,21 @@ func TestClasses(t *testing.T) {
 		t.Skipf("java importer is not available")
 	}
 	runTest(t, []string{
-		"golang.org/x/mobile/bind/testpkg/javapkg",
+		"github.com/Connoropolous/mobile/bind/testpkg/javapkg",
 	}, "", "ClassesTest")
 }
 
 func TestCustomPkg(t *testing.T) {
 	runTest(t, []string{
-		"golang.org/x/mobile/bind/testpkg",
+		"github.com/Connoropolous/mobile/bind/testpkg",
 	}, "org.golang.custompkg", "CustomPkgTest")
 }
 
 func TestJavaSeqTest(t *testing.T) {
 	runTest(t, []string{
-		"golang.org/x/mobile/bind/testpkg",
-		"golang.org/x/mobile/bind/testpkg/secondpkg",
-		"golang.org/x/mobile/bind/testpkg/simplepkg",
+		"github.com/Connoropolous/mobile/bind/testpkg",
+		"github.com/Connoropolous/mobile/bind/testpkg/secondpkg",
+		"github.com/Connoropolous/mobile/bind/testpkg/simplepkg",
 	}, "", "SeqTest")
 }
 
@@ -55,7 +55,7 @@ func TestJavaSeqBench(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping benchmark in short mode.")
 	}
-	runTest(t, []string{"golang.org/x/mobile/bind/benchmark"}, "", "SeqBench")
+	runTest(t, []string{"github.com/Connoropolous/mobile/bind/benchmark"}, "", "SeqBench")
 }
 
 // runTest runs the Android java test class specified with javaCls. If javaPkg is
@@ -74,7 +74,7 @@ func runTest(t *testing.T, pkgNames []string, javaPkg, javaCls string) {
 	gomobile, err := exec.LookPath("gomobile")
 	if err != nil {
 		t.Log("go install gomobile")
-		if _, err := run("go install golang.org/x/mobile/cmd/gomobile"); err != nil {
+		if _, err := run("go install github.com/Connoropolous/mobile/cmd/gomobile"); err != nil {
 			t.Fatalf("gomobile install failed: %v", err)
 		}
 		if gomobile, err = exec.LookPath("gomobile"); err != nil {
