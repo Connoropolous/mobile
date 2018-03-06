@@ -60,9 +60,12 @@ func (g *goGen) genFuncBody(o *types.Func, selectorLHS string) {
 	}
 
 	res := sig.Results()
-	fmt.Sprintf("function! %s", selectorLHS)
-	if res.Len() > 2 || res.Len() == 2 && !isErrorType(res.At(1).Type()) {
-		g.errorf("functions and methods must return either zero or one values, and optionally an error")
+	if res.Len() > 2 {
+		g.errorf("too many results being assigned " + o.Name() + " " + selectorLHS)
+		return
+	}
+	if res.Len() == 2 && !isErrorType(res.At(1).Type()) {
+		g.errorf("there are two arguments and the second one must be of type error " + o.Name() + " " + selectorLHS)
 		return
 	}
 	if res.Len() > 0 {
