@@ -21,10 +21,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"golang.org/x/mobile/bind"
-	"golang.org/x/mobile/internal/importers"
-	"golang.org/x/mobile/internal/importers/java"
-	"golang.org/x/mobile/internal/importers/objc"
+	"github.com/Connoropolous/mobile/bind"
+	"github.com/Connoropolous/mobile/internal/importers"
+	"github.com/Connoropolous/mobile/internal/importers/java"
+	"github.com/Connoropolous/mobile/internal/importers/objc"
 )
 
 // ctx, pkg, tmpdir in build.go
@@ -174,7 +174,7 @@ type binder struct {
 }
 
 func (b *binder) GenGoSupport(outdir string) error {
-	bindPkg, err := ctx.Import("golang.org/x/mobile/bind", "", build.FindOnly)
+	bindPkg, err := ctx.Import("github.com/Connoropolous/mobile/bind", "", build.FindOnly)
 	if err != nil {
 		return err
 	}
@@ -182,7 +182,7 @@ func (b *binder) GenGoSupport(outdir string) error {
 }
 
 func (b *binder) GenObjcSupport(outdir string) error {
-	objcPkg, err := ctx.Import("golang.org/x/mobile/bind/objc", "", build.FindOnly)
+	objcPkg, err := ctx.Import("github.com/Connoropolous/mobile/bind/objc", "", build.FindOnly)
 	if err != nil {
 		return err
 	}
@@ -283,7 +283,7 @@ func (b *binder) GenObjc(pkg *types.Package, files []*ast.File, allPkg []*types.
 }
 
 func (b *binder) GenJavaSupport(outdir string) error {
-	javaPkg, err := ctx.Import("golang.org/x/mobile/bind/java", "", build.FindOnly)
+	javaPkg, err := ctx.Import("github.com/Connoropolous/mobile/bind/java", "", build.FindOnly)
 	if err != nil {
 		return err
 	}

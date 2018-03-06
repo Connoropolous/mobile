@@ -9,7 +9,7 @@ Gomobile is a tool for building and running mobile apps written in Go.
 
 To install:
 
-	$ go get golang.org/x/mobile/cmd/gomobile
+	$ go get github.com/Connoropolous/mobile/cmd/gomobile
 	$ gomobile init
 
 At least Go 1.5 is required.
@@ -134,7 +134,7 @@ Init use the Android NDK installed by the Android SDK manager by default. Use th
 
 If the -openal flag is specified, init also builds an Android version of OpenAL
 from the source directory given. OpenAL enables support for gomobile build and
-install with mobile apps using the golang.org/x/mobile/exp/audio/al package.
+install with mobile apps using the github.com/Connoropolous/mobile/exp/audio/al package.
 It needs cmake and, on Windows, nmake installed. If cmake is installed through
 the Android SDK manager, init will use that.
 
@@ -176,7 +176,7 @@ create a gradle subproject and configure the gobind plugin in the build.gradle f
 	gobind {
 		// The Go package path; must be under one of the GOPATH elements or
 		// a relative to the current directory (e.g. ../../hello)
-		pkg = "golang.org/x/mobile/example/bind/hello"
+		pkg = "github.com/Connoropolous/mobile/example/bind/hello"
 
 		// Optional GOPATH.
 		// GOPATH = "/YOUR/GOPATH"
@@ -208,8 +208,8 @@ main Android project build.gradle, apply the gobind plugin after the android plu
 	apply plugin: "org.golang.mobile.bind"
 
 	gobind {
-		pkg = "golang.org/x/mobile/example/bind/reverse"
+		pkg = "github.com/Connoropolous/mobile/example/bind/reverse"
 	}
 
 */
-package main // import "golang.org/x/mobile/cmd/gomobile"
+package main // import "github.com/Connoropolous/mobile/cmd/gomobile"
